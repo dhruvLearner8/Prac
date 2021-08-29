@@ -9,7 +9,8 @@ https://docs.djangoproject.com/en/3.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
-
+import os
+import django_heroku
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -25,7 +26,7 @@ SECRET_KEY = 'django-insecure-v$vhhvemv4fe(sze-n(_$kb=!8=yn-ybol78_-3z&f+frc00ql
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['meop.herokuapp.com']
 
 
 # Application definition
@@ -75,11 +76,14 @@ WSGI_APPLICATION = 'expense.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE' : 'django.db.backends.postgresql',
+        'NAME' :'ddd4rklbvcsq36',
+        'USER':'jfsdtqltyzwqoc',
+        'PASSWORD':'5320739baf727793d6f4768f483f04c00b536637dd74d4f0a5e35a240dabecdc',
+        'HOST':'ec2-54-159-35-35.compute-1.amazonaws.com',
+        'PORT':'5432'
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
@@ -116,8 +120,9 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
-
+STATIC_ROOT=os.path.join(BASE_DIR,'static')
 STATIC_URL = '/static/'
+django_heroku.settings(locals())
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
