@@ -8,6 +8,6 @@ from django.contrib.auth.models import User, auth
 
 # Create your views here.
 def home(request):
-    return render(request,'home.html')
+    return render(request,'main_page_sgp.html')
 
 # Create your views here.
