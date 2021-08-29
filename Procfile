@@ -1,2 +1,2 @@
-release: python manage.py migrate
-web: gunicorn expense.wsgi --logs-file=-
+
+web: gunicorn expense.wsgi 
